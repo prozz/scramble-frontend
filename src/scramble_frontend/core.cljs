@@ -20,7 +20,8 @@
                                    {:with-credentials? false
                                     :query-params {"s1" @s1 "s2" @s2}}))]
         (if (= 200 (:status response))
-          (reset! answer (str (get-in response [:body :scramble])))))))
+          (reset! answer (str (get-in response [:body :scramble])))
+          (reset! answer "bad request or some other problem!")))))
 
 (defn scramble []
   (let [s1 (r/atom "")
